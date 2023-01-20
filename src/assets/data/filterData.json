@@ -1,0 +1,69 @@
+[
+    {
+        "key": "Name",
+        "controlName" : "name",
+        "type": "text",
+        "multiple": false
+    },
+    {
+        "key": "Department",
+        "controlName" : "department",
+        "type": "select",
+        "multiple": false,
+        "values": [
+            {
+                "name": "IT",
+                "value": "IT"
+            },
+            {
+                "name": "HR",
+                "value": "HR"
+            },
+            {
+                "name": "Sales",
+                "value": "Sales"
+            },
+            {
+                "name": "Accounting",
+                "value": "Accounting"
+            },
+            {
+                "name": "Customer Service",
+                "value": "Customer Service"
+            }
+
+        ]
+    },
+    {
+        "key": "Joining Date",
+        "controlName" : "joinDate",
+        "type": "date",
+        "multiple": false
+    },
+    {
+        "key": "Salary",
+        "controlName" : "salary",
+        "type": "number",
+        "multiple": false
+    },
+    {
+        "key": "Experience",
+        "controlName" : "experience",
+        "type": "select",
+        "multiple": true,
+        "values": [
+            {
+                "name": "Less than a year",
+                "value": "less than a year"
+            },
+            {
+                "name": "From 1-3 years",
+                "value": "from 1-3 years"
+            },
+            {
+                "name": "3 years or above",
+                "value": "3 years or above"
+            }
+        ]
+    }
+]

@@ -1,0 +1,38 @@
+<div class="container bg-white mt-5">
+    <div class="row">
+        <table class="table border rounded" style="text-align: center;">
+            <thead>
+              <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Join Date</th>
+                <th scope="col">Department</th>
+                <th scope="col">Salary</th>
+                <th scope="col">Experience</th>
+              </tr>
+            </thead>
+            <div *ngIf="parentFilterData; then filterBlock else allDataBlock"></div>
+            <ng-template #filterBlock>
+              <tbody class="table-group-divider">
+                <tr *ngFor="let emp of parentFilterData">
+                  <td>{{emp.name}}</td>
+                  <td>{{emp.joinDate}}</td>
+                  <td>{{emp.department}}</td>
+                  <td>{{emp.salary}}</td>
+                  <td>{{emp.experience}}</td>
+                </tr>
+              </tbody>
+            </ng-template>
+            <ng-template #allDataBlock>
+              <tbody class="table-group-divider">
+                <tr *ngFor="let emp of displayEmpList">
+                  <td>{{emp.name}}</td>
+                  <td>{{emp.joinDate}}</td>
+                  <td>{{emp.department}}</td>
+                  <td>{{emp.salary}}</td>
+                  <td>{{emp.experience}}</td>
+                </tr>
+              </tbody>
+            </ng-template>
+          </table>
+    </div>
+</div>

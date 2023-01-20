@@ -1,0 +1,16 @@
+<div class="container-fluid bg-white">
+    <div class="container bg-white">
+        <div class="row bg-white">
+            <div class="filterControl w-25">
+                <div class="row bg-white" >
+                    <app-filter-controls (newChildFilter)="childDataFilter=$event"></app-filter-controls>
+                </div>
+            </div>
+            <div class="employeesData w-75">
+                <div class="row bg-white" >
+                    <app-employees [parentFilterData]="filterEmployees"></app-employees>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

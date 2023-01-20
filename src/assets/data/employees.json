@@ -1,0 +1,92 @@
+{
+    "employees": [
+      {
+        "id": 1,
+        "name": "Mohamed Attalah",
+        "joinDate": "2022-09-12",
+        "department": "IT",
+        "salary": 8000,
+        "experience": "less than a year"
+      },
+      {
+        "id": 2,
+        "name": "Ahmed Hassan",
+        "joinDate": "2021-05-15",
+        "department": "HR",
+        "salary": 5000,
+        "experience": "from 1-3 years"
+      },
+      {
+        "id": 3,
+        "name": "Mostafa Ahmed",
+        "joinDate": "2018-10-21",
+        "department": "Accounting",
+        "salary": 6000,
+        "experience": "3 years or above"
+      },
+      {
+        "id": 4,
+        "name": "Mansour Fayez",
+        "joinDate": "2022-01-05",
+        "department": "Sales",
+        "salary": 5000,
+        "experience": "from 1-3 years"
+      },
+      {
+        "id": 5,
+        "name": "Ola Ghanem",
+        "joinDate": "2015-07-25",
+        "department": "Customer Service",
+        "salary": 7000,
+        "experience": "3 years or above"
+      },
+      {
+        "id": 6,
+        "name": "Mai Omar",
+        "joinDate": "2017-05-01",
+        "department": "IT",
+        "salary": 5000,
+        "experience": "3 years or above"
+      },
+      {
+        "id": 7,
+        "name": "Mona Ahmed",
+        "joinDate": "2022-01-04",
+        "department": "HR",
+        "salary": 6000,
+        "experience": "from 1-3 years"
+      },
+      {
+        "id": 8,
+        "name": "Sara Adel",
+        "joinDate": "2023-01-04",
+        "department": "Accounting",
+        "salary": 5000,
+        "experience": "less than a year"
+      },
+      {
+        "id": 9,
+        "name": "Ali Mohamed",
+        "joinDate": "2016-02-02",
+        "department": "Sales",
+        "salary": 6000,
+        "experience": "3 years or above"
+      },
+      {
+        "id": 10,
+        "name": "Mahmoud Ali",
+        "joinDate": "2022-06-14",
+        "department": "Customer Service",
+        "salary": 5000,
+        "experience": "less than a year"
+      },
+      {
+        "id": 11,
+        "name": "Mahmoud Ali",
+        "joinDate": "2017-11-07",
+        "department": "Customer Service",
+        "salary": 7000,
+        "experience": "3 years or above"
+      }
+    ]
+  }
