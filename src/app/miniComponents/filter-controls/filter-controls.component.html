@@ -1,52 +1,12 @@
-<!-- <div class="container mt-5 bg-white border rounded">
-    <h4 class="pt-2 pb-2">Filter</h4>
-    <form class="row g-3" [formGroup]="filterForm" method="post" (ngSubmit)="onSubmit()">
-        <div class="col-12">
-            <label for="inputName">Name</label>
-            <input type="text" class="form-control" id="inputName" placeholder="Name" formControlName="name"
-                [class.is-invalid]="NAME?.invalid && NAME?.touched">
-            <div *ngIf="NAME?.errors && NAME?.touched">
-                <small class="text-danger" *ngIf="NAME?.errors?.['minlength']">minimum 4 letters</small>
-            </div>
-        </div>
-        <div class="col-12">
-            <label for="inputDate">Joining Date</label>
-            <input type="date" class="form-control" id="inputDate" formControlName="joinDate">
-
-        </div>
-        <div class="col-12">
-            <label for="inputDepartment">Department</label>
-            <select class="form-select" aria-label="Default select example" id="inputDepartment"
-                formControlName="department">
-                 <option selected>Department</option> //comment
-                <option *ngFor="let dept of departmentsList" value={{dept}}>{{dept}}</option>
-            </select>
-        </div>
-        <div class="col-12">
-            <label for="inputSalary">Salary</label>
-            <input type="number" class="form-control" id="inputSalary" min="0" formControlName="salary">
-        </div>
-        <div class="col-12">
-            <label for="inputExperience">Experience</label>
-            <select class="form-select" aria-label="Default select example" id="inputExperience"
-                formControlName="experience" (change)="addExperience($event)">
-                 <option selected>Experience</option> //comment
-                <option *ngFor="let exp of experiencesList" value={{exp}}>{{exp}}</option>
-            </select>
-        </div>
-        <div class="col-12" style="display: flex; justify-content: space-between;">
-            <button type="button" class="btn btn-secondary mb-3" (click)="clearFilters()">Clear All</button>
-            <button type="submit" class="btn btn-primary mb-3">Filter</button>
-        </div>
-    </form>
-</div>
-<div class="d-inline-flex" *ngFor="let exp of EmpExperiences">
-    <p class="bg-white m-1 p-1 text-black border border-dark rounded" style="font-size: 12px; width: fit-content;">{{exp}}</p>
-</div> -->
-
 <div class="container mt-5 bg-white border rounded col-12">
-    <h4 class="pt-2 pb-2">Filter</h4>
-    <form class="row g-3" [formGroup]="filterForm" method="post" (ngSubmit)="onSubmit()">
+    <div style="display: flex; justify-content: space-between; align-items: center;">
+        <h4 class="pt-2 pb-2">Filter</h4>
+        <button class="btn btn-primary" id="collapseBtn" type="button" data-bs-toggle="collapse"
+            data-bs-target="#collapseWidthExample" aria-expanded="false" aria-controls="collapseWidthExample">☰
+        </button>
+    </div>
+    <form class="row g-3 collapse collapse-vertical" id="collapseWidthExample" [formGroup]="filterForm" method="post"
+        (ngSubmit)="onSubmit()">
         <div class="col-12" *ngFor="let input of HTMLinputs">
             <label for="input{{input.key}}">{{input.key}}</label>
             <div *ngIf="input.type === 'select' then thenBlock; else elseBlock"></div>
@@ -56,19 +16,20 @@
                     <select class="form-select" aria-label="Default select example" id="input{{input.key}}"
                         formControlName="{{input.controlName}}" (change)="addExperience($event)">
                         <option selected></option>
-                        <option *ngFor="let val of input.values" value={{val.value}} >{{val.name}}</option>
+                        <option *ngFor="let val of input.values" value={{val.value}}>{{val.name}}</option>
                     </select>
                     <div class="d-inline-flex" *ngFor="let exp of EmpExperiences">
-                        <p class="bg-white m-1 p-1 text-black border border-dark rounded" style="font-size: 10px; width: fit-content;">
+                        <p class="bg-white m-1 p-1 text-black border border-dark rounded"
+                            style="font-size: 11px; width: fit-content;">
                             {{exp}}</p>
                     </div>
                 </ng-template>
                 <ng-template #deptBlock>
                     <select class="form-select" aria-label="Default select example" id="input{{input.key}}"
-                    formControlName="{{input.controlName}}">
-                    <option selected></option>
-                    <option *ngFor="let val of input.values" value={{val.value}} >{{val.name}}</option>
-                </select>
+                        formControlName="{{input.controlName}}">
+                        <option selected></option>
+                        <option *ngFor="let val of input.values" value={{val.value}}>{{val.name}}</option>
+                    </select>
                 </ng-template>
             </ng-template>
             <ng-template #elseBlock>

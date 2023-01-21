@@ -5,3 +5,12 @@ input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
+
+#collapseBtn{
+  height: fit-content; 
+  background-color: rgba(208, 219, 229, 0); 
+  color: black;
+  border: none;
+  font-size: larger;
+  font-weight: bold;
+}
