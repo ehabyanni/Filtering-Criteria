@@ -1,7 +1,6 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { filterData } from 'src/app/_Interfaces/filterData';
 import { Filter } from 'src/app/_models/Classes/Filter';
 import { GetEmployeesService } from 'src/app/_services/get-employees.service';
 
@@ -17,9 +16,6 @@ export class FilterControlsComponent implements OnInit {
     private router: Router,
     private empService: GetEmployeesService
   ) { }
-
-  departmentsList: string[] = [];
-  experiencesList: string[] = [];
 
   @Output() newChildFilter = new EventEmitter();
 
@@ -53,29 +49,18 @@ export class FilterControlsComponent implements OnInit {
   }
 
 
-  HTMLinputs:any;
-  
+  //map on json File "HTML inputs"
+  HTMLinputs: any;
+
   ngOnInit(): void {
-    this.empService.getDepartmentsList().subscribe(
-      data => {
-        this.departmentsList = data.departments;
-      }
-    );
-    this.empService.getExperiencesList().subscribe(
-      data => {
-        this.experiencesList = data.experiences;
-      }
-    )
     this.empService.getHTMLinputs().subscribe(
       data => {
         this.HTMLinputs = data;
-        console.log(this.HTMLinputs);
+        //console.log(this.HTMLinputs);
       }
     )
   }
 
-  filterInputs: any = [];
-  filterData: any = [];
   //array of experiences
   EmpExperiences: string[] = [];
 
@@ -93,23 +78,27 @@ export class FilterControlsComponent implements OnInit {
     newFilterData.joinDate = this.JoinDATE?.value;
     newFilterData.department = this.DEPARTMENT?.value;
     newFilterData.salary = this.SALARY?.value;
-    newFilterData.experiences = this.EmpExperiences;
+    newFilterData.experience = this.EmpExperiences;
+
+    console.log(newFilterData);
 
     //send data to parent component
     this.newChildFilter.emit(newFilterData);
-    console.log(newFilterData);
-    //reset the arrays to not save the data for another filter event
-    this.filterInputs = [];
-    this.filterData = [];
-    this.EmpExperiences = [];
+
   }
+
+  emplist: any;
 
   //reset the filters
   clearFilters() {
     this.filterForm.reset();
+    this.empService.getEmpolyeesList().subscribe(
+      data => {
+        this.emplist = data.employees;
+        this.newChildFilter.emit(this.emplist);
+      }
+    )
     //clear arrays
-    this.filterInputs = [];
-    this.filterData = [];
     this.EmpExperiences = [];
   }
 

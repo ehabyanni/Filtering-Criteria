@@ -15,6 +15,9 @@ export class FilterPageComponent implements OnInit {
 
   childDataFilter: any;
   filterEmployees: any;
+  filteredData: any;
+
+  allData: any;
 
   ngOnInit(): void {
   }
@@ -22,21 +25,32 @@ export class FilterPageComponent implements OnInit {
   ngAfterViewInit() {
     this.getFilterData.newChildFilter.subscribe(
       data => {
+        //filter object 
         this.childDataFilter = data;
-        console.log(this.childDataFilter);
+
         if (this.childDataFilter != null && this.childDataFilter != undefined) {
           this.empService.getEmpolyeesList().subscribe(
             data => {
-              this.filterEmployees = data.employees.filter((e: any) => e.salary >= this.childDataFilter.salary);
-              console.log(this.filterEmployees);
-            }
-          )
-        }
-        else {
-          this.empService.getEmpolyeesList().subscribe(
-            data => {
-              this.filterEmployees = data.employees;
-              console.log(this.filterEmployees);
+              this.allData = data.employees;
+              this.filteredData = data.employees;
+              for (let key in this.childDataFilter) {
+                if (key) {
+                  this.filteredData = this.filteredData.filter((el: any): any => {
+                    if (el[`${key}`] && this.childDataFilter[`${key}`]) {
+                      if (Array.isArray(this.childDataFilter[`${key}`]) && this.childDataFilter[`${key}`].length > 0) {
+                        console.log(Array.isArray(this.childDataFilter[`${key}`]));
+                        return this.childDataFilter[`${key}`].includes(el[`${key}`]);
+                      } else {
+                        return String(el[`${key}`]).includes(this.childDataFilter[`${key}`])
+                      }
+                    } else {
+                      return this.allData
+                    }
+                  })
+                }
+              }
+              console.log(this.filteredData)
+              this.filterEmployees = this.filteredData;
             }
           )
         }

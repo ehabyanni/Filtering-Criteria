@@ -58,6 +58,10 @@
                         <option selected></option>
                         <option *ngFor="let val of input.values" value={{val.value}} >{{val.name}}</option>
                     </select>
+                    <div class="d-inline-flex" *ngFor="let exp of EmpExperiences">
+                        <p class="bg-white m-1 p-1 text-black border border-dark rounded" style="font-size: 10px; width: fit-content;">
+                            {{exp}}</p>
+                    </div>
                 </ng-template>
                 <ng-template #deptBlock>
                     <select class="form-select" aria-label="Default select example" id="input{{input.key}}"
@@ -77,8 +81,4 @@
             <button type="submit" class="btn btn-primary mb-3">Filter</button>
         </div>
     </form>
-</div>
-<div class="d-inline-flex" *ngFor="let exp of EmpExperiences">
-    <p class="bg-white m-1 p-1 text-black border border-dark rounded" style="font-size: 12px; width: fit-content;">
-        {{exp}}</p>
 </div>

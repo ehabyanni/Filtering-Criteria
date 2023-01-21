@@ -10,13 +10,10 @@ export class EmployeesComponent implements OnInit {
 
   @Input() parentFilterData: any;
 
-
   empList: any;
   displayEmpList:any;
 
   constructor(private empService: GetEmployeesService) { }
-
-
 
   ngOnInit(): void {
     this.empService.getEmpolyeesList().subscribe(

@@ -10,15 +10,13 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 
 import { HttpClientModule } from '@angular/common/http';
-import { JsonHtMLComponent } from './json-ht-ml/json-ht-ml.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     FilterPageComponent,
     FilterControlsComponent,
-    EmployeesComponent,
-    JsonHtMLComponent
+    EmployeesComponent
   ],
   imports: [
     BrowserModule,
